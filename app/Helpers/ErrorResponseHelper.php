@@ -8,9 +8,9 @@ class ErrorResponseHelper
 {
     public static function handle (\Exception $exception)
     {
-        if (method_exists($exception, 'getStatusCode'))
+        if (method_exists($exception, 'getCode'))
         {
-            $statusCode = $exception->getStatusCode();
+            $statusCode = $exception->getCode();
         }
         else
         {

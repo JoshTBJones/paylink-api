@@ -72,9 +72,9 @@ class Fibonacci extends Model
     public function get_term_number (int $xn)
     {
         // validation
-        if ($xn > 100)
+        if ($xn > 12586269025)
         {
-            throw new \Exception ("This demo can only index the first 100 terms of the Fibonacci sequence.");
+            throw new \Exception ("This demo can only index up to Fn 12586269025 (n=50) of the Fibonacci sequence.", 400);
         }
 
         // fibonacci sequence

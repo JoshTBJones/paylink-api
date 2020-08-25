@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get(
-    "fibonacci-term/{term_number}",
-    "FibonacciController@get_fibonacci_term"
-);
-Route::get(
-    "fibonacci-term-number/{term_number}",
-    "FibonacciController@get_fibonacci_number"
-);
+Route::prefix("fibonacci")->group(function () {
+    Route::get("/{term_number}/term", "FibonacciController@get_fibonacci_term");
+    Route::get("/{term_number}/index", "FibonacciController@get_fibonacci_term_index");
+});
+
+Route::prefix("fizzbuzz")->group(function () {
+    Route::post("/", "FizzbuzzController@calculate_fizzbuzz");
+});
